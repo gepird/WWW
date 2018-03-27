@@ -13,4 +13,15 @@ body{
 
 .face-img{
     width: 100%;
+    margin-top: 2em;
+}
+
+.text-container{
+    text-align: justify;
+}
+
+@media screen and (max-width: 600px){
+    .face-img{
+        margin-top: 0;
+    }
 }

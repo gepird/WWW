@@ -1,6 +1,6 @@
 .panel, .panel-header{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
 }
 
 .panel{
@@ -16,7 +16,7 @@
 }
 
 .panel-content{
-    background-color: #7d7d7d;
+    background-color: #8f8f8f;
 }
 
 .panel-list{

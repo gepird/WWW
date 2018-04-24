@@ -13,40 +13,46 @@
 </head>
 
 <body>
-    <nav class="nav">
-        <div>
-            <ul class="navbar-top">
-                <li class="nav-element">
-                    <a href="../index.html">
-                        <img src="./img/home.svg" alt="Home" class="home-icon">
-                    </a>
-                </li>
-                <li class="dropdown nav-element">
-                    <a href="" class="dropbtn">Edukacja</a>
-                    <div class="dropdown-content">
-                        <a href="./semestry/semestr1.html">I Semestr</a>
-                        <a href="./semestry/semestr2.html">II Semestr</a>
-                        <a href="./semestry/semestr3.html">III Semestr</a>
-                        <a href="./semestry/semestr4.html">IV Semestr</a>
-                        <a href="./semestry/semestr5.html">V Semestr</a>
-                    </div>
-                </li>
-                <li class="dropdown nav-element">
-                    <a href="" class="dropbtn">Hobby</a>
-                    <div class="dropdown-content">
-                        <a href="./hobby/komputerowe.html">Gry komputerowe</a>
-                        <a href="./hobby/podroze.html">Podróże</a>
-                        <a href="./hobby/programowanie.html">Programowanie</a>
-                        <a href="./hobby/szachy.html">Szachy</a>
-                        <a href="./hobby/brydz.html">Brydż</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+    <nav>
+        <ul class="navbar-top">
+            <li>
+                <a class="active">
+                    <img src="./img/home.svg" alt="Home" class="home-icon">
+                </a>
+            </li>
+            <li id="dropdown-1" class="dropdown" onclick="hideShowDropdown('dropdown-1')">
+                <a href="javascript:void(0)" class="dropbtn">Edukacja
+                    <span class="caret"></span>
+                </a>
+                <div class="dropdown-content">
+                    <a href="./semestry/semestr1.html">I Semestr</a>
+                    <a href="./semestry/semestr2.html">II Semestr</a>
+                    <a href="./semestry/semestr3.html">III Semestr</a>
+                    <a href="./semestry/semestr4.html">IV Semestr</a>
+                    <a href="./semestry/semestr5.html">V Semestr</a>
+                </div>
+            </li>
+            <li id="dropdown-2" class="dropdown" onclick="hideShowDropdown('dropdown-2')">
+                <a href="javascript:void(0)" class="dropbtn">Hobby
+                    <span class="caret"></span>
+                </a>
+                <div class="dropdown-content">
+                    <a href="./hobby/komputerowe.html">Gry komputerowe</a>
+                    <a href="./hobby/podroze.html">Podróże</a>
+                    <a href="./hobby/programowanie.html">Programowanie</a>
+                    <a href="./hobby/szachy.html">Szachy</a>
+                    <a href="./hobby/brydz.html">Brydż</a>
+                </div>
+            </li>
+        </ul>
+        <span class="icon" onclick="hideShowMenu()">☰</span>
     </nav>
     <div class="container">
         <div class="col-1-6"></div>
         <div class="content col-4-6">
+            <div class="col-1-6" style="float: right;">
+                <img class="face-img" src="./img/face.jpg" alt="Tu miało być zdjęcie">
+            </div>
             <div class="col-5-6">
                 <section>
                     <h1>Łukasz Mazurkiewicz</h1>
@@ -58,11 +64,10 @@
                     </div>
                 </section>
             </div>
-            <div class="col-1-6">
-                <img class="face-img" src="./img/face.jpg" alt="Tu miało być zdjęcie">
-            </div>
         </div>
     </div>
+
+    <script src="../navbar/navbar.js"></script>
 </body>
 
 </html>

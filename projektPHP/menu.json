@@ -1,0 +1,52 @@
+[
+    {
+        "label": "Edukacja",
+        "submenu": [
+            {
+                "label": "I Semestr",
+                "link": "semestry/semestr1.php"
+            },
+            {
+                "label": "II Semestr",
+                "link": "semestry/semestr2.php"
+            },
+            {
+                "label": "III Semestr",
+                "link": "semestry/semestr3.php"
+            },
+            {
+                "label": "IV Semestr",
+                "link": "semestry/semestr4.php"
+            },
+            {
+                "label": "V Semestr",
+                "link": "semestry/semestr5.php"
+            }
+        ]
+    },
+    {
+        "label": "Hobby",
+        "submenu": [
+            {
+                "label": "Gry komputerowe",
+                "link": "hobby/komputerowe.php"
+            },
+            {
+                "label": "Podróże",
+                "link": "hobby/podroze.php"
+            },
+            {
+                "label": "Programowanie",
+                "link": "hobby/programowanie.php"
+            },
+            {
+                "label": "Szachy",
+                "link": "hobby/szachy.php"
+            },
+            {
+                "label": "Brydż",
+                "link": "hobby/brydz.php"
+            }
+        ]
+    }
+]

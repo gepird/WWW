@@ -1,0 +1,138 @@
+ul.navbar-top {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333333;
+    overflow: hidden;
+    height: 3em;
+    font-weight: bold;
+    padding-left: 16.83333%
+}
+
+ul.navbar-top li {
+    float: left;
+    height: 100%;
+    padding: 0 0.5em;
+    line-height: 3em;
+}
+
+ul.navbar-top a {
+    display: block;
+    padding: 0 0.25em;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+}
+
+ul.navbar-top a.active{
+    background-color: #757575;
+}
+
+ul.navbar-top a:hover,
+.dropdown:hover .dropbtn,
+.dropdown-content a:hover {
+    background-color: #757575;
+}
+
+.home-icon {
+    height: 3em;
+    padding-bottom: 0.2em;
+}
+
+li a,
+.dropbtn {
+    display: inline-block;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content li {
+    color: #000000;
+    padding: 0 !important;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: #333333;
+    float: inherit !important;
+}
+
+.navbar-top>li:first-of-type {
+    padding-left: 0;
+}
+
+.icon {
+    display: none;
+}
+
+@media screen and (min-width: 601px) {
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown:hover .caret {
+        border-top: 0;
+        border-bottom: 4px dashed;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    ul.navbar-top {
+        padding: 0;
+        height: 100%;
+    }
+    ul.navbar-top li {
+        float: none;
+        width: 100%;
+    }
+    .dropdown-content {
+        position: static;
+    }
+    .icon {
+        float: right;
+        display: inline-block;
+        color: #fff;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        cursor: pointer;
+    }
+    .navbar-top li:not(:first-child) {
+        display: none;
+    }
+    .navbar-top.responsive li {
+        display: block;
+    }
+    .show-content .dropdown-content {
+        display: block;
+    }
+}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    color: #ffffff;
+}
+
+.show-content .caret {
+    border-top: 0;
+    border-bottom: 4px dashed;
+}

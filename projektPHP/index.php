@@ -15,7 +15,7 @@ echo $P->CreateMenu();
     <div class="col-1-6"></div>
     <div class="content col-4-6">
         <div class="col-1-6" style="float: right;">
-            <img class="face-img" src="./img/face.jpg" alt="Tu miało być zdjęcie">
+            <img class="face-img" src="./img/face.png" alt="Tu miało być zdjęcie">
         </div>
         <div class="col-5-6">
             <div>

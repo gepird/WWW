@@ -48,5 +48,9 @@
                 "link": "hobby/brydz.php"
             }
         ]
+    },
+    {
+        "label": "Dodaj opinię",
+        "link": "opinie/dodaj.php"
     }
 ]

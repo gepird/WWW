@@ -7,13 +7,9 @@ $OPIS = "Główna strona witryny Łukasza Mazurkiewicz poświęconej przygodom z
 $P = new myPage("Łukasz Mazurkiewicz- moje przygody z edukacją", "../");
 $P->SetDescription($OPIS);
 
-echo $P->Begin();
-echo $P->CreateMenu("Gry komputerowe");
+echo $P->Start("Gry komputerowe");
 ?>
 
-<div class="container">
-        <div class="col-1-6"></div>
-        <div class="content col-4-6">
             <div class="col-6-6">
                 <h1>Moje ulubione gry komputerowe</h1>
                 <div class="row">
@@ -53,8 +49,6 @@ echo $P->CreateMenu("Gry komputerowe");
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
 <?php
 // generujemy zamknięcie strony 

@@ -16,7 +16,19 @@ $HEADER =<<<EOT
 EOT;
 
 $FOOTER =<<<EOT
+</div>
 {{SCRIPTS}}
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}, 
+      CommonHTML: { linebreaks: { automatic: true } }, 
+      "HTML-CSS": { linebreaks: { automatic: true } }, 
+      SVG: { linebreaks: { automatic: true } } 
+    })
+</script>
+<script async 
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 </body>
 </html>   
 EOT;
@@ -83,6 +95,9 @@ class MyPage {
     $X=[];
     $X[] = "<nav>";
     $X[] = "<ul class=\"navbar-top\">";
+
+    $X[] = "<li onclick=\"hideShowMenu()\">Menu <span class=\"icon\">☰</span></li>";
+
     //adding home icon
     if(strcmp("home", $active)===0){
       $X[] = str_replace("{{ROOT}}", $this->root, $homeActiveTemplate);
@@ -111,7 +126,6 @@ class MyPage {
     }
 
     $X[] = "</ul>";
-    $X[] = "<span class=\"icon\" onclick=\"hideShowMenu()\">☰</span>";
     $X[] = "</nav>";
     return join("\n", $X);
   }
@@ -132,6 +146,7 @@ class MyPage {
     $this->AddCSS("style.css");
 
     $this->AddJS("navbar.js");
+    $this->AddJS("panel.js");
   }
 
   /**
@@ -150,15 +165,6 @@ class MyPage {
       $X[]= (string) str_replace(["{{R}}", "{{CSS}}"], [$this->root, (string) $C[$i]], $TMP);
     }
     $s= str_replace("{{STYLES}}", join("\n",$X), $s);
-
-    // dodajemy skrypty
-    $X = [];
-    $C = $this->jsfiles;
-    $T = '  <script src="{{R}}js/{{JS}}"></script>' . "\n";
-    for ($i = 0; $i < count($this->jsfiles); $i++){
-      $X[]= str_replace(["{{R}}", "{{JS}}"], [$this->root, (string) $C[$i]], $T);
-    } 
-    $s= str_replace("{{SCRIPTS}}", join("\n",$X), $s);
     
     // aktualizujemy styl wewnętrzny strony
     $X = ($this->innerStyle === "") ? "" : "<style>\n" . $this->innerStyle . "\n</style>\n"; 
@@ -173,13 +179,37 @@ class MyPage {
   }
 
   /**
+   * Zwraca łańcuch z nagłówkiem, menu i początkiem kodu strony
+   */
+  public function Start($active="home", $filename="menu.json"){
+    $X=[];
+    $X[]=$this->Begin();
+    $X[]=$this->CreateMenu($active, $filename);
+    $X[]="<div class='container row'>";
+    $X[]="<div class='col-1-6'></div>";
+    $X[]="<div class='col-4-6 content'>";
+    return join("\n",$X);
+  }
+
+  /**
   * Zwraca lancuch z zamknieciem strony
   * @return string
   */    
   public function End() {
     global $FOOTER;
-    // dodajemy skrypty
     $X = [];
+    $X[]="<div class='col-1-6 opinions content'><h1>Opinie</h1>";
+    // dodajemy opinie
+    $db = mysqli_connect('localhost', 'root', '1234', 'projektwww');
+    $query="SELECT * FROM opinie";
+    $result=$db->query($query);
+    while (($row = $result -> fetch_assoc()) !== null) {
+      $X[]="<div class='opinion-panel' style='display: none;'><label class='col-6-6 author'>".$row["nick"]."</label><label class='col-6-6 opinion'>".$row["opinion"]."</label></div>";
+    }
+    $result->close();
+    $db->close();
+    $X[]="</div></div>";
+    // dodajemy skrypty
     $C = $this->jsfiles;
     $T = '  <script src="{{R}}js/{{JS}}"></script>' . "\n";
     for ($i = 0; $i < count($this->jsfiles); $i++){

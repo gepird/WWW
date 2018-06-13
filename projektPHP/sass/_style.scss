@@ -13,15 +13,17 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.5em;
     margin-bottom: 0.25em;
 }
-h1 {font-size: 2em;}
-h2 {font-size: 1.75em;}
-h3 {font-size: 1.5em;}
-h4 {font-size: 1.25em;}
-h5 {font-size: 1em;}
-h6 {font-size: 0.75em;}
+
+@for $i from 1 through 6 {
+    h#{$i}{
+        font-size: $largest-header-font - ($i - 1)*$header-level;
+    }
+  }
 
 .content{
     background-color: #7d7d7d;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .face-img{

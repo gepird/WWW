@@ -7,8 +7,7 @@ $OPIS = "Główna strona witryny Łukasza Mazurkiewicz poświęconej przygodom z
 $P = new myPage("Łukasz Mazurkiewicz- moje przygody z edukacją");
 $P->SetDescription($OPIS);
 
-echo $P->Begin();
-echo $P->CreateMenu();
+echo $P->Start();
 ?>
 
 <div class="container">

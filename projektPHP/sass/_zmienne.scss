@@ -1,0 +1,9 @@
+// *************** Parametry grida ***********************************
+
+$numberOfColumns   : 6;
+$grid-padding      : 0;
+$grid-spacing      : 0.5em;  //odstęp między kolejnymi row's
+$gutter            : 1.5;    //odstęp między rows; będzie przemnożone przez 1%
+
+// **************** breakpoints ************************************
+$m-l-breakpoint : 640px;  // medium-large

@@ -140,10 +140,7 @@ class MyPage {
   public function __construct($title = "", $root="") {
     $this->title = $title;
     $this->root  = $root;
-    $this->AddCSS("reset.css");
-    $this->AddCSS("grid.css");
-    $this->AddCSS("navbar.css");
-    $this->AddCSS("style.css");
+    $this->AddCSS("page.css");
 
     $this->AddJS("navbar.js");
     $this->AddJS("panel.js");
@@ -187,7 +184,7 @@ class MyPage {
     $X[]=$this->CreateMenu($active, $filename);
     $X[]="<div class='container row'>";
     $X[]="<div class='col-1-6'></div>";
-    $X[]="<div class='col-4-6 content'>";
+    $X[]="<div class='col-4-6 content row'>";
     return join("\n",$X);
   }
 
@@ -208,7 +205,7 @@ class MyPage {
     }
     $result->close();
     $db->close();
-    $X[]="</div></div>";
+    $X[]="</div>";
     // dodajemy skrypty
     $C = $this->jsfiles;
     $T = '  <script src="{{R}}js/{{JS}}"></script>' . "\n";
